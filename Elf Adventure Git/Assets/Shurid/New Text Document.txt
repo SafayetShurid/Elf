@@ -1,0 +1,14 @@
+Version1.4
+
+
+
+1. Box Collider bug slighlty fixed..Still bugs
+2. Splash screen added..but a new screen needed
+3. HealthBar can be upgraded and it shows value
+4. New Revive System
+5. Ad Integration
+
+Ui alignment issues will be fixed.
+ScoreSystem Changes (Definetly it can be changed but I need to talk again) 
+Daily bonus and google leaderboard will be added
+for UI changes, please provide me assets with a mock design 

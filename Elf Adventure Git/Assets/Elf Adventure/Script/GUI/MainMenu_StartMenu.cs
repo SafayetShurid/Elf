@@ -12,6 +12,9 @@ public class MainMenu_StartMenu : MonoBehaviour {
 	public Sprite soundOn;
 	public Sprite soundOff;
 
+    public Text coinAmount;
+    public Text points;
+
 	SoundManager soundManager;
 
 	// Use this for initialization
@@ -22,8 +25,10 @@ public class MainMenu_StartMenu : MonoBehaviour {
 			soundImage.sprite = soundOn;
 
 		soundManager = FindObjectOfType<SoundManager> ();
-		
-	}
+        points.text = PlayerPrefs.GetInt(GlobalValue.Points, 0).ToString("000000");
+        coinAmount.text = PlayerPrefs.GetInt(GlobalValue.Coins, 0).ToString();
+
+    }
 	
 	public void TurnSound(){
 		if (AudioListener.volume == 0) {

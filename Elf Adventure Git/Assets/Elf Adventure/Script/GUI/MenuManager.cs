@@ -12,6 +12,7 @@ public class MenuManager : MonoBehaviour {
 	public GameObject GameFinish;
 	public GameObject GamePause;
 	public GameObject LoadingScreen;
+    public RewardVideo rewardVideo;
 
 	void Awake(){
 		Instance = this;
@@ -92,7 +93,51 @@ public class MenuManager : MonoBehaviour {
 			RestartGame ();
 	}
 
-	IEnumerator StartGame(float time){
+    public void GotoCheckPointWithCoins()
+    {
+        //Shurid
+        //ad Show
+        SoundManager.PlaySfx(SoundManager.Instance.soundClick);
+        int coins = PlayerPrefs.GetInt(GlobalValue.Coins,0);
+        if (coins>=10)
+        {
+            coins -= 10;
+            PlayerPrefs.SetInt(GlobalValue.Coins, coins);
+                
+            GUI.SetActive(true);
+            Gameover.SetActive(false);
+
+
+            if (!LevelManager.Instance.isLastLevelOfWorld)
+                GameManager.Instance.GotoCheckPoint();
+            else
+                RestartGame();
+        }
+        else
+        {
+            Debug.Log("Not Enough Coins");
+        }
+       
+    }
+
+    public void GotoCheckPointWithAds()
+    {
+        //Shurid
+        //ad Show
+        /* SoundManager.PlaySfx(SoundManager.Instance.soundClick);
+         GUI.SetActive(true);
+         Gameover.SetActive(false);
+
+         if (!LevelManager.Instance.isLastLevelOfWorld)
+             GameManager.Instance.GotoCheckPoint();
+         else
+             RestartGame(); */
+        rewardVideo.ShowAd();
+    }
+
+
+
+    IEnumerator StartGame(float time){
 		yield return new WaitForSeconds (time - 0.5f);
 		Startmenu.GetComponent<Animator> ().SetTrigger ("play");
 

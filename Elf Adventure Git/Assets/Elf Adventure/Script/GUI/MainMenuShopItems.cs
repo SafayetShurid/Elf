@@ -30,8 +30,8 @@ public class MainMenuShopItems : MonoBehaviour {
 
 	void Update(){
 
-        BulletAmountText.text = PlayerPrefs.GetInt(GlobalValue.Bullets).ToString();
-        HealthAmountText.text = PlayerPrefs.GetInt(GlobalValue.Health).ToString();
+        BulletAmountText.text = PlayerPrefs.GetInt(GlobalValue.Bullets,5).ToString();
+        HealthAmountText.text = PlayerPrefs.GetInt(GlobalValue.Health,100).ToString();
         //Shurid
 		//livesTxt.text = "Health Bonus: " + PlayerPrefs.GetInt (GlobalValue.Lives, 10);
 		//bulletTxt.text = "Bullet: " + PlayerPrefs.GetInt (GlobalValue.Bullets, 3);
@@ -55,7 +55,7 @@ public class MainMenuShopItems : MonoBehaviour {
 		if (coins >= bulletPrice) {
 			coins -= bulletPrice;
 			PlayerPrefs.SetInt (GlobalValue.Coins, coins);
-			var bullets = PlayerPrefs.GetInt (GlobalValue.Bullets, 0);
+			var bullets = PlayerPrefs.GetInt (GlobalValue.Bullets, 5);
 			bullets++;
 			PlayerPrefs.SetInt (GlobalValue.Bullets, bullets);
 			SoundManager.PlaySfx (boughtSound, boughtSoundVolume);

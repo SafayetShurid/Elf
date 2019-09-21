@@ -7,7 +7,8 @@ public class MyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       // PlayerPrefs.SetInt(GlobalValue.Coins, 1000);
+        // PlayerPrefs.SetInt(GlobalValue.Coins, 1000);
+       // PlayerPrefs.DeleteAll();
     }
 
   

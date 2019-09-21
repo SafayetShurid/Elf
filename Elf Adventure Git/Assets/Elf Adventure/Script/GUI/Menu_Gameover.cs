@@ -17,29 +17,7 @@ public class Menu_Gameover : MonoBehaviour {
 
 	}
 
-	void OnEnable () {
-
-		Buttons.SetActive (false);
-
-		if (!GameManager.Instance.isNoLives)
-			lives = GameManager.Instance.SavedLives;
-		else
-			lives = 0;
-
-
-
-		var levelReached = PlayerPrefs.GetInt (GlobalValue.worldPlaying.ToString (), 1);
-
-		if (GlobalValue.levelPlaying <= levelReached)
-			Next.SetActive (true);
-		else
-			Next.SetActive (false);
-
-        //liveText.text = (lives + 1).ToString ("00");
-        //StartCoroutine (SubtractLiveCo (1));
-        StartOver.SetActive(false);
-        Buttons.SetActive(true);
-    }
+	
 
 	IEnumerator SubtractLiveCo(float time){
 		

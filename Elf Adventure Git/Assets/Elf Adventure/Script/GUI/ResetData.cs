@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ResetData : MonoBehaviour {
 	SoundManager soundManager;
+    public Text coinText;
 
 	void Start(){
 		soundManager = FindObjectOfType<SoundManager> ();
@@ -28,4 +30,13 @@ public class ResetData : MonoBehaviour {
 
 		//SoundManager.PlaySfx (soundManager.soundClick);
 	}
+
+    public void FREECOIN()
+    {
+        int coin = PlayerPrefs.GetInt(GlobalValue.Coins,0);
+        coin += 1000;
+        PlayerPrefs.SetInt(GlobalValue.Coins, coin);
+        coinText.text = PlayerPrefs.GetInt(GlobalValue.Coins, 0).ToString();
+
+    }
 }
